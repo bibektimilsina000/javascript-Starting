@@ -1,0 +1,71 @@
+/* For turning light on and off using different butttons */
+:root{
+    --hue_neutral: 200;
+}
+body{
+    --hue: var(--hue_neutral);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200vh;
+    height: 100vh;
+    background-color:hsl(var(--hue), 1%, 1%);
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+button {
+    font-size: 20px;
+    font-weight: 900;
+    margin: 10px;
+    padding: 10px 5px;
+    cursor: pointer;
+    --hue: var(--hue_neutral);
+    background-color: hsl(var(--hue_neutral), 100%, 50%);
+    border: 1px solid hsl(var(--hue_neutral), 100%, 30%);
+} 
+
+button:hover{
+    border: 2px solid black;
+    color: aliceblue;
+} 
+
+
+
+/* For turning light on and off by clicking on image  */
+
+
+/* :root{
+    --hue_neutral: 200;
+
+}
+body{
+    --hue: var(--hue_neutral);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200vh;
+    height: 100vh;
+    background-color:hsl(var(--hue), 100%, 20%);
+}
+.container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform:translate(-50%, -50%) ;
+}
+h1{
+    color: violet;
+}
+img{
+    margin-left: 150px;
+    cursor: pointer;
+}  */
+

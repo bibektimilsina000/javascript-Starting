@@ -1,0 +1,167 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --cell-size: 150px;
+  --mark-size: calc(var(--cell-size) * 0.9);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to right, #181755 ,#092021);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200vh;
+  height: 100vh;
+}
+
+/* for game board  */
+.board {
+  width: 450px;
+  height: 450px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  box-shadow: 0 -15px 15px rgba(255, 255, 255,0.05),
+  inset 0 -15px 15px rgba(255, 255, 255,0.05),
+  0 15px 15px rgba(0, 0, 0, 0.05),
+  inset 0 15px 15px rgba(0, 0, 0, 0.05);
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 5px solid #091921;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+/* for removing cell unnecessary boarders */
+ .cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+  border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7) {
+  border-bottom: none;
+} */
+
+/* to avoid repeative touch  */
+.cell.x,
+.cell.circle {
+  cursor: not-allowed;
+}
+
+/* for cross sign  */
+.cell.x::before,
+.cell.x::after,
+.cell.circle::before {
+  background-color: black;
+}
+
+/* hover color for cross  */
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after{
+  background-color: rgb(211, 211, 211);
+}
+
+/* hover color for circle  */
+.board.circle .cell:not(.x):not(.circle):hover::before {
+  background-color: rgba(211, 211, 211, 0.725);
+}
+
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--mark-size) * 0.15);
+  height: var(--mark-size);
+}
+
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover::before {
+  transform: rotate(45deg);
+}
+
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after {
+  transform: rotate(-45deg);
+}
+
+/* for circle sign   */
+.cell.circle::before,
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cell.circle::before,
+.board.circle .cell:not(.x):not(.circle):hover::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+  /* background-color: lightgrey; */
+}
+
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background: linear-gradient(to right, #181755 ,#092021);
+}
+
+/* for displaying winning-message  */
+.winning-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 5rem;
+  flex-direction: column;
+}
+
+.winning-message button {
+  font-size: 3rem;
+  background-color: white;
+  border: 1px solid black;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+}
+
+.winning-message button:hover {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
+.winning-message.show {
+  display: flex;
+}

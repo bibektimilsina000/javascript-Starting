@@ -1,0 +1,68 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #4158D0;
+    background-image: linear-gradient(to right bottom, #C11E38, #991937, #721536, #4A1035, #220B34);
+    height: 100vh;
+}
+.container{
+    background-image: linear-gradient(to right bottom, #432371 15%, #714674 80%, #9F6976 100%, #CC8B79 50%, #FAAE7B 90%);
+    color: gold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 400px;
+}
+.contents{
+    left: auto;
+    margin-left:90px;
+}
+
+input{
+    padding:10px 15px ;
+    font-size: 25px;
+    margin-left: 20px;
+}
+.radiobtn input[type="radio"]{
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+span{
+    font-size: 25px;
+    cursor: pointer;
+}
+
+button{
+    color: wheat;
+    background-color: #220b34aa;
+    position: relative;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    font-size: 30px;
+    padding: 10px 15px;
+    border-radius: 10px ;
+    border:2px solid #220B34;
+    cursor: pointer;
+    transition: all ease-in-out 0.4s;
+}
+button:hover{
+    background-color: whitesmoke;
+    color: #220B34;
+}
+
+.output{
+    color: #220B34;
+    font-size: 25px;
+    position: relative;
+    background-color: transparent;
+    top: 50px;
+    width: 300px;
+    height: 40px;
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+}
